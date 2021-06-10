@@ -22,6 +22,7 @@
 		8D9DEF05198B4404004E3013 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D9DEF03198B4404004E3013 /* InfoPlist.strings */; };
 		8D9DEF07198B4404004E3013 /* __Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9DEF06198B4404004E3013 /* __Tests.m */; };
 		8D9DEF11198B441B004E3013 /* fzpw.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 8D9DEF10198B441B004E3013 /* fzpw.TTF */; };
+		8DA511372672189A0073D9E4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DA511362672189A0073D9E4 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		8D9DEF04198B4404004E3013 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8D9DEF06198B4404004E3013 /* __Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = __Tests.m; sourceTree = "<group>"; };
 		8D9DEF10198B441B004E3013 /* fzpw.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = fzpw.TTF; sourceTree = "<group>"; };
+		8DA511362672189A0073D9E4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				8D9DEEF1198B4404004E3013 /* WXLViewController.m */,
 				8D9DEEF3198B4404004E3013 /* Images.xcassets */,
 				8D9DEEDF198B4404004E3013 /* Supporting Files */,
+				8DA511362672189A0073D9E4 /* Launch Screen.storyboard */,
 			);
 			path = "字体";
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				8D9DEEF4198B4404004E3013 /* Images.xcassets in Resources */,
 				8D9DEF11198B441B004E3013 /* fzpw.TTF in Resources */,
 				8D9DEEEC198B4404004E3013 /* Main_iPhone.storyboard in Resources */,
+				8DA511372672189A0073D9E4 /* Launch Screen.storyboard in Resources */,
 				8D9DEEE3198B4404004E3013 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
