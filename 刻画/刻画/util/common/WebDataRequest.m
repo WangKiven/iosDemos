@@ -253,12 +253,17 @@
         imageView.image = image;
     }else{
         
-        [imageView setImageWithURL:url placeholderImage:pImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-            
-            [[SDImageCache sharedImageCache] storeImage:image forKey:[url absoluteString]];
-            
-        }];
+//        [imageView setImageWithURL:url placeholderImage:pImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+//
+//            [[SDImageCache sharedImageCache] storeImage:image forKey:[url absoluteString]];
+//
+//        }];
         
+        [imageView sd_setImageWithURL:url placeholderImage:pImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            [[SDImageCache sharedImageCache] storeImage:image forKey:[url absoluteString] completion:^{
+                
+            }];
+        }];
     }
     
 }

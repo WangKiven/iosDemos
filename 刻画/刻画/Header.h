@@ -31,7 +31,7 @@
 
 
 #import "util/UIMessageBox/UIMessageBox.h"
-#import "util/SDWebImage/UIImageView+WebCache.h"
+//#import "util/SDWebImage/UIImageView+WebCache.h"
 #import "util/common/UIImage+MyExtern.h"
 #import "util/common/UIView+SkipperImage.h"
 #import "util/common/NSString+MyExtern.h"
@@ -40,6 +40,9 @@
 #import "util/common/UIButton+DrawType.h"
 #import "util/common/Common.h"
 #import "util/common/ShareOrSaveImage.h"
+
+
+#import <SDWebImage/SDWebImage.h>
 
 //分享用
 #define BAIDUID @"RkTr9EwwkalyHbm47t8RC0Sj"

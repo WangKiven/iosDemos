@@ -138,7 +138,8 @@
     }else{
         url = [NSURL URLWithString:@"http://e.hiphotos.baidu.com/image/h%3D1050%3Bcrop%3D0%2C0%2C1680%2C1050/sign=e8ef43ec2d2eb938f36d7ef2e052be56/09fa513d269759ee816520c6b0fb43166d22df82.jpg"];
     }
-    [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@""] options:SDWebImageLowPriority];
+//    [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@""] options:SDWebImageLowPriority];
+    [cell.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@""] options:SDWebImageLowPriority];
     
     return cell;
 }
