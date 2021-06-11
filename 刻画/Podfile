@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 #use_frameworks!
 #use_modular_headers!
 
-# XXFramework 依赖.
+# XXFramework 依赖
 def XXFramework_libs()
     pod 'SDWebImage', '~> 5.0'
 end
