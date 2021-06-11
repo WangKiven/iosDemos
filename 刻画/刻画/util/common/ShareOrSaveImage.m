@@ -7,7 +7,6 @@
 //
 
 #import "ShareOrSaveImage.h"
-#import <AssetsLibrary/ALAssetsLibrary.h>
 #import <Photos/Photos.h>
 
 
@@ -23,7 +22,7 @@ void ToShareOrSaveImage2(UIImage *image, SOSType sosType, UIView *view)
 
 @interface ShareOrSaveImage ()<UIActionSheetDelegate>
 {
-    ALAssetsLibrary *library;
+    
 }
 @end
 @implementation ShareOrSaveImage
@@ -109,9 +108,6 @@ void ToShareOrSaveImage2(UIImage *image, SOSType sosType, UIView *view)
 #pragma mark - 保存图片到相册    获取画后的图片
 - (void) saveImage
 {
-    if (!library) {
-        library = [[ALAssetsLibrary alloc] init];
-    }
     
 //    UIView *vi = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 200, 200)];
 //    vi.backgroundColor = [UIColor redColor];
