@@ -50,7 +50,7 @@
     cell.textLabel.text = fontName;
     cell.textLabel.font = [UIFont fontWithName:fontName size:15];
     
-    cell.detailTextLabel.text = @"杯莫停--1234";
+    cell.detailTextLabel.text = @"杯莫停-1234-ABCD-abcd";
     cell.detailTextLabel.font = [UIFont fontWithName:fontName size:15];
     
     return cell;
