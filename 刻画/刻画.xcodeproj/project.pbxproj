@@ -268,6 +268,7 @@
 		8DA440ED18E2F5F000EFE4DA /* XXController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DA440EB18E2F5F000EFE4DA /* XXController.xib */; };
 		8DA440F018E4543B00EFE4DA /* NSString+MyExtern.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA440EF18E4543B00EFE4DA /* NSString+MyExtern.m */; };
 		8DA440F218E45E7C00EFE4DA /* ThemeViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DA440F118E45E7C00EFE4DA /* ThemeViewController_iPad.xib */; };
+		8DA5116F267314480073D9E4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DA5116E267314480073D9E4 /* Launch Screen.storyboard */; };
 		8DA860A418B1E0A200AE8B0B /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA860A318B1E0A200AE8B0B /* Common.m */; };
 		8DBCC71D18BED2420086E74E /* DLWMLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCC70E18BED2420086E74E /* DLWMLinearLayout.m */; };
 		8DBCC71E18BED2420086E74E /* DLWMMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCC71018BED2420086E74E /* DLWMMenu.m */; };
@@ -797,6 +798,7 @@
 		8DA440EE18E4543B00EFE4DA /* NSString+MyExtern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MyExtern.h"; sourceTree = "<group>"; };
 		8DA440EF18E4543B00EFE4DA /* NSString+MyExtern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MyExtern.m"; sourceTree = "<group>"; };
 		8DA440F118E45E7C00EFE4DA /* ThemeViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeViewController_iPad.xib; sourceTree = "<group>"; };
+		8DA5116E267314480073D9E4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8DA860A218B1E0A200AE8B0B /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		8DA860A318B1E0A200AE8B0B /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		8DBCC70D18BED2420086E74E /* DLWMLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLWMLinearLayout.h; sourceTree = "<group>"; };
@@ -929,6 +931,7 @@
 				8DA440E318E2796B00EFE4DA /* ViewCtrFooter.xib */,
 				186475011850AD1E00833805 /* Images.xcassets */,
 				186474ED1850AD1E00833805 /* Supporting Files */,
+				8DA5116E267314480073D9E4 /* Launch Screen.storyboard */,
 			);
 			path = "刻画";
 			sourceTree = "<group>";
@@ -1742,6 +1745,7 @@
 				1864751F1850AE8C00833805 /* ViewController.xib in Resources */,
 				1864752C1850B2FC00833805 /* SuperController.xib in Resources */,
 				18AB6E311861895400A1999D /* SettingController.xib in Resources */,
+				8DA5116F267314480073D9E4 /* Launch Screen.storyboard in Resources */,
 				186474F11850AD1E00833805 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
