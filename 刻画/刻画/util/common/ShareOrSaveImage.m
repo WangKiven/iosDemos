@@ -125,17 +125,18 @@ void ToShareOrSaveImage2(UIImage *image, SOSType sosType, UIView *view)
         [alert show];
     }];*/
     
-    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-            // 请求通过一个图片创建一个资源。
-            PHAssetChangeRequest *createAssetRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:self.image];
-             // 请求编辑这个相簿。
-            PHAssetCollectionChangeRequest *albumChangeRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:[PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:NULL]];
-             // 得到一个新的资源的占位对象并添加它到相簿编辑请求中。
-            PHObjectPlaceholder *assetPlaceholder = [createAssetRequest placeholderForCreatedAsset];
-            [albumChangeRequest addAssets:@[ assetPlaceholder ]];
-         } completionHandler:^(BOOL success, NSError *error) {
-            NSLog(@"操作结束，%@", (success ? @"保存图片成功。" : error));
-             
+    [[PHPhotoLibrary sharedPhotoLibrary]performChanges:^{
+            [PHAssetChangeRequest creationRequestForAssetFromImage:self.image];
+        } completionHandler:^(BOOL success, NSError * _Nullable error) {
+            
+                    // 非主线程，将UI操作切换到主线程进行
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                    if (error) {
+                        [UIMessageBox showMessageBoxInView:self.view withText:@"保存图片失败"];
+                    } else {
+                        [UIMessageBox showMessageBoxInView:self.view withText:@"保存图片成功"];
+                    }
+                });
         }];
     
 //    UIImageWriteToSavedPhotosAlbum(self.image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
@@ -204,6 +205,16 @@ void ToShareOrSaveImage2(UIImage *image, SOSType sosType, UIView *view)
     
     [share showShareMenuWithShareContent:content displayPlatforms:platforms supportedInterfaceOrientations:UIInterfaceOrientationMaskPortrait isStatusBarHidden:NO targetViewForPad:nil cancelListener:onCancel failureListener:onFailure resultListener:onResult];
      */
+    
+    UIActivityViewController *ctr = [[UIActivityViewController alloc] initWithActivityItems:@[_image] applicationActivities:nil];
+    ctr.excludedActivityTypes = @[UIActivityTypeAssignToContact];
+    
+    
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    UIViewController *rootVC = window.rootViewController;
+    [rootVC presentViewController:ctr animated:true completion:^{
+        
+    }];
     
 }
 
