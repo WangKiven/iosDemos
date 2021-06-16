@@ -34,7 +34,14 @@
     
 //    NSMutableString *mStr = [NSMutableString stringWithString:@"本机可用过滤器及其相关可用属性：\n"];
     
-    properties = [CIFilter filterNamesInCategory: kCICategoryBuiltIn];
+    /*NSArray<NSString *> *categories = @[kCICategoryDistortionEffect, kCICategoryGeometryAdjustment, kCICategoryCompositeOperation, kCICategoryHalftoneEffect, kCICategoryColorAdjustment, kCICategoryColorEffect, kCICategoryTransition, kCICategoryTileEffect, kCICategoryGenerator, kCICategoryReduction, kCICategoryGradient, kCICategoryStylize, kCICategorySharpen, kCICategoryBlur, kCICategoryVideo, kCICategoryStillImage, kCICategoryInterlaced, kCICategoryNonSquarePixels, kCICategoryHighDynamicRange, kCICategoryBuiltIn, kCICategoryFilterGenerator];
+    
+    NSMutableSet<NSString*> *pp = [[NSMutableSet alloc] init];
+    for (int i = 0; i < categories.count; i++) {
+        [pp addObjectsFromArray:[CIFilter filterNamesInCategory:categories[i]]];
+    }
+    properties = [pp allObjects];*/
+    properties = [CIFilter filterNamesInCategory: kCICategoryBuiltIn];//上面遍历说以类型后的结果和这个一样
     
     curArray = properties;
 //    NSLog(@"%@", properties);

@@ -239,6 +239,22 @@
         if ([key isEqualToString:@"inputRectangle"]) {
             [filter setValue:[CIVector vectorWithCGRect:CGRectMake(20, 20, 100, 200)] forKey:@"inputRectangle"];
         }
+        
+        if ([key isEqualToString:@"inputText"]) {
+            NSShadow *shadow = [[NSShadow alloc]init];
+                shadow.shadowOffset = CGSizeMake(5, 5);     // 影子偏移量
+                shadow.shadowColor = [UIColor blueColor];   // 影子颜色
+                shadow.shadowBlurRadius = 20.0;             // 模糊程度
+                  
+                  
+                NSDictionary *dict = @{
+                                       NSFontAttributeName:[UIFont fontWithName:@"Marion-Italic" size:50.0],
+                                       NSShadowAttributeName:shadow,
+                                       NSKernAttributeName:@(2)
+                                       };
+//            [filter setValue:@"Kiven最帅，☺️" forKey:@"inputText"];
+            [filter setValue:[[NSAttributedString alloc]initWithString:@"Kiven最帅，☺️\n明天吃鸡" attributes:dict] forKey:@"inputText"];
+        }
     }
     
     [self showFilterImage];

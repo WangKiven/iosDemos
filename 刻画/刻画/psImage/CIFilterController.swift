@@ -8,25 +8,100 @@
 
 import Foundation
 import UIKit
+
+protocol CIFilterDelegate {
+    func finshWith(image:UIImage);
+}
+
 class CIFilterController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    let filterAr = Array<CIFilter>.init()//存储滤镜
+    var delegate:CIFilterDelegate?
+    var isStandard = false
+    var image = UIImage.init()
+    
+    var filterAr = Array<CIFilter>.init()//存储滤镜
     var filter = CIFilter.init()//当前滤镜
     var startPoint = CGPoint.init();//开始点
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let filterNames = CIFilter.filterNames(inCategory: nil)
+        filterAr = filterNames.map { (name) -> CIFilter in
+            CIFilter.init(name: name)!
+        }
+        
+        collectionView.register(UINib.init(nibName: "CammraCell", bundle: nil), forCellWithReuseIdentifier: "cammraCell")
+        collectionView.allowsSelection = true
+        collectionView.selectItem(at: NSIndexPath.init(row: 0, section: 0) as IndexPath, animated: false, scrollPosition: .top)
+    }
+    
     // MARK: - 事件
     
     @IBAction func toExitAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func okAction(_ sender: Any) {
+        let image = imageView.image
+        
+        if image == nil {
+            return
+        }
+        
+        if let d = delegate {
+            d.finshWith(image: image!)
+        }
+        
+        if !isStandard {
+            ToShareOrSaveImage(image, self.view)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        startPoint = (touches.first?.location(in: view))!
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let lastPoint = (touches.first?.previousLocation(in: view))!
+        if __CGPointEqualToPoint(startPoint, lastPoint) {
+            collectionView.isHidden = !collectionView.isHidden
+        }
+        
+        startPoint = CGPoint.init()
+    }
+    
     @IBAction func pinchAction(_ sender: UIPinchGestureRecognizer) {
+        
+        let paths = collectionView.indexPathsForSelectedItems
+        if paths!.count < 1 {
+            return
+        }
+        let path = paths?.first
+        
+        let scale = sender.scale
+        sender.scale = 1
+        
+        
     }
+    
     @IBAction func panAction(_ sender: UIPanGestureRecognizer) {
+        
+        let paths = collectionView.indexPathsForSelectedItems
+        if paths!.count < 1 {
+            return
+        }
+        let path = paths?.first
+        
+        let tPoint = sender.translation(in: imageView)
+        sender.setTranslation(CGPoint.init(), in: imageView)
+        
+        
     }
     
     // MARK: - dataSource/delegate
@@ -36,28 +111,28 @@ class CIFilterController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell:CammraCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cammraCell", for: indexPath)
+        let cell:CammraCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cammraCell", for: indexPath) as! CammraCell
         
         cell.imageView.backgroundColor = UIColor.white
         cell.imageView.layer.masksToBounds = true
         cell.imageView.layer.cornerRadius = 8
         
-        let filter = CIFilter.init(name: <#T##String#>)
+        let filter = filterAr[indexPath.row]
+        filter.setValue(UIImage.init(named: "thumb"), forKey: kCIInputImageKey)
+        cell.imageView.image = getFilterImage(filter)
         
         return cell
         
     }
     
+    // MARK: -
+    
     func initFilter(_ name:String) -> CIFilter {
-        let filter = CIFilter.init(name: name)
-        
-        switch name {
-        case <#pattern#>:
-            <#code#>
-        default:
-            <#code#>
-        }
-        
+        let filter = CIFilter.init(name: name)!
         return filter
+    }
+    
+    func getFilterImage(_ filter:CIFilter) -> UIImage {
+        return UIImage.init(ciImage: filter.outputImage!)
     }
 }
