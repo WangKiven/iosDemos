@@ -266,6 +266,8 @@
 		8DBCC72218BED2420086E74E /* DLWMSelectionMenuAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCC71818BED2420086E74E /* DLWMSelectionMenuAnimator.m */; };
 		8DBCC72318BED2420086E74E /* DLWMSpiralLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCC71A18BED2420086E74E /* DLWMSpiralLayout.m */; };
 		8DBCC72418BED2420086E74E /* DLWMSpringMenuAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCC71C18BED2420086E74E /* DLWMSpringMenuAnimator.m */; };
+		8DE274912679937D00D0925F /* CIFilterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE274902679937D00D0925F /* CIFilterController.xib */; };
+		8DE27496267993A500D0925F /* CIFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE27495267993A500D0925F /* CIFilterController.swift */; };
 		8DEB716B18CEE619002A7D3D /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DEB716A18CEE619002A7D3D /* CoreText.framework */; };
 		8DEB716E18CF0473002A7D3D /* WTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEB716D18CF0473002A7D3D /* WTextView.m */; };
 		8DF5815818ADB04900791AC1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF5815718ADB04900791AC1 /* MessageUI.framework */; };
@@ -780,6 +782,9 @@
 		8DBCC71A18BED2420086E74E /* DLWMSpiralLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLWMSpiralLayout.m; sourceTree = "<group>"; };
 		8DBCC71B18BED2420086E74E /* DLWMSpringMenuAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLWMSpringMenuAnimator.h; sourceTree = "<group>"; };
 		8DBCC71C18BED2420086E74E /* DLWMSpringMenuAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLWMSpringMenuAnimator.m; sourceTree = "<group>"; };
+		8DE274902679937D00D0925F /* CIFilterController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CIFilterController.xib; sourceTree = "<group>"; };
+		8DE27494267993A500D0925F /* 刻画-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "刻画-Bridging-Header.h"; sourceTree = "<group>"; };
+		8DE27495267993A500D0925F /* CIFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIFilterController.swift; sourceTree = "<group>"; };
 		8DEB716A18CEE619002A7D3D /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		8DEB716C18CF0473002A7D3D /* WTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTextView.h; sourceTree = "<group>"; };
 		8DEB716D18CF0473002A7D3D /* WTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTextView.m; sourceTree = "<group>"; };
@@ -1124,6 +1129,9 @@
 				8D9BF7B518E9464100186FDF /* PsImageController.h */,
 				8D9BF7B618E9464100186FDF /* PsImageController.m */,
 				8D9BF7B718E9464100186FDF /* PsImageController.xib */,
+				8DE274902679937D00D0925F /* CIFilterController.xib */,
+				8DE27495267993A500D0925F /* CIFilterController.swift */,
+				8DE27494267993A500D0925F /* 刻画-Bridging-Header.h */,
 			);
 			path = psImage;
 			sourceTree = "<group>";
@@ -1637,6 +1645,7 @@
 				TargetAttributes = {
 					186474E21850AD1E00833805 = {
 						DevelopmentTeam = EUCY6MCCT8;
+						LastSwiftMigration = 1240;
 					};
 					186475061850AD1E00833805 = {
 						TestTargetID = 186474E21850AD1E00833805;
@@ -1670,6 +1679,7 @@
 			files = (
 				8DA1DF1C18DBFFD5005C36CB /* CammraController.xib in Resources */,
 				8DA440ED18E2F5F000EFE4DA /* XXController.xib in Resources */,
+				8DE274912679937D00D0925F /* CIFilterController.xib in Resources */,
 				8D9BF7B918E9464100186FDF /* PsImageController.xib in Resources */,
 				8D9EAED318D85B87005D2606 /* ThemeViewController.xib in Resources */,
 				186475251850B26A00833805 /* NewController.xib in Resources */,
@@ -1854,6 +1864,7 @@
 				8DA1E2E718DC046B005C36CB /* GPUImageSaturationFilter.m in Sources */,
 				8DA1E29F18DC046B005C36CB /* GPUImageFramebuffer.m in Sources */,
 				8DEB716E18CF0473002A7D3D /* WTextView.m in Sources */,
+				8DE27496267993A500D0925F /* CIFilterController.swift in Sources */,
 				8DA1E2BA18DC046B005C36CB /* GPUImageLightenBlendFilter.m in Sources */,
 				18AB6DF718616C7600A1999D /* ASIDownloadCache.m in Sources */,
 				8DA440EC18E2F5F000EFE4DA /* XXController.m in Sources */,
@@ -2076,6 +2087,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2087,10 +2099,14 @@
 				GCC_PREFIX_HEADER = "刻画/刻画-Prefix.pch";
 				INFOPLIST_FILE = "刻画/刻画-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "刻画/psImage/刻画-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2104,6 +2120,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2115,10 +2132,13 @@
 				GCC_PREFIX_HEADER = "刻画/刻画-Prefix.pch";
 				INFOPLIST_FILE = "刻画/刻画-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "刻画/psImage/刻画-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2127,6 +2147,7 @@
 		1864751C1850AD1F00833805 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/刻画.app/刻画";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2150,6 +2171,7 @@
 		1864751D1850AD1F00833805 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/刻画.app/刻画";
 				FRAMEWORK_SEARCH_PATHS = (

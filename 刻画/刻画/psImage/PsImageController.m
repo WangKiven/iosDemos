@@ -9,7 +9,7 @@
 #import "PsImageController.h"
 #import "GPUImage.h"
 #import "CammraCell.h"
-
+#import <CoreImage/CoreImage.h>
 
 #define CellIden @"cammraCell"
 
