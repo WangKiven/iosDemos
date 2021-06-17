@@ -16,8 +16,9 @@ protocol CIFilterDelegate {
 class CIFilterController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var delegate:CIFilterDelegate?
-    var isStandard = false
-    var image = UIImage.init()
+    @objc var isStandard:Bool = false
+    @objc var image:UIImage = UIImage.init()
+    var thumbImage = UIImage.init(named: "thumb")!
     
     var filterAr = Array<CIFilter>.init()//存储滤镜
     var filter = CIFilter.init()//当前滤镜
@@ -118,8 +119,40 @@ class CIFilterController: UIViewController, UICollectionViewDataSource, UICollec
         cell.imageView.layer.cornerRadius = 8
         
         let filter = filterAr[indexPath.row]
-        filter.setValue(UIImage.init(named: "thumb"), forKey: kCIInputImageKey)
-        cell.imageView.image = getFilterImage(filter)
+        
+        print("构造行：\(indexPath.row)-\(filter.name)")
+        
+        let dic = filter.attributes
+        var hasInputImageKey = false
+        var hasOther = false
+        dic.forEach { (key, value) in
+            switch (key) {
+            case kCIInputImageKey:
+                hasInputImageKey = true
+                filter.setValue(thumbImage.ciImage, forKey: kCIInputImageKey)
+                break
+            case kCIInputCenterKey:
+                filter.setValue(CIVector.init(x: 10, y: 10), forKey: kCIInputCenterKey)
+                break
+            case kCIInputTargetImageKey:
+                hasOther = true
+                break
+            case kCIInputTransformKey:
+                let vv = NSValue.init(cgAffineTransform: CGAffineTransform.init(scaleX: 0.5, y: 0.33))
+                filter.setValue(vv, forKey: kCIInputTransformKey)
+                break
+            default:
+                break
+            }
+        }
+        
+        if hasInputImageKey && !hasOther {
+            cell.imageView.image = getFilterImage(filter)
+        } else {
+            cell.imageView.image = nil
+        }
+        
+//        cell.imageView.image = UIImage.init(named: "thumb")
         
         return cell
         
@@ -132,7 +165,37 @@ class CIFilterController: UIViewController, UICollectionViewDataSource, UICollec
         return filter
     }
     
-    func getFilterImage(_ filter:CIFilter) -> UIImage {
-        return UIImage.init(ciImage: filter.outputImage!)
+    func getFilterImage(_ filter:CIFilter) -> UIImage? {
+        if let oi = filter.outputImage {
+            var ff = oi.extent
+            if ff.origin.x <= 0 {
+                ff = CIImage.init(cgImage: thumbImage.cgImage!).extent
+            } else {
+                return UIImage.init(ciImage: oi)
+            }
+            
+            let cgimg = CIContext.init().createCGImage(oi, from: ff)
+            if cgimg != nil {
+                return UIImage.init(cgImage: cgimg!)
+            }
+        }
+        return nil
     }
+    
+    
+    /*
+    // 得到过滤后的图片
+    CIImage *outputImage = [filter outputImage];
+    // 转换图片, 创建基于GPU的CIContext对象
+    CGImageRef cgimg;
+    
+    CGRect ff = [outputImage extent];
+    
+    if (ff.origin.x <= 0) {
+        ff = [[CIImage imageWithCGImage:self.image.CGImage] extent];
+    }
+    
+    cgimg = [self.context createCGImage:outputImage fromRect:ff];
+    
+    UIImage *newImg = [UIImage imageWithCGImage:cgimg];*/
 }

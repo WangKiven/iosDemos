@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="collectionView" destination="TDL-0U-tsR" id="m5z-by-Pic"/>
                 <outlet property="imageView" destination="laG-eO-WnI" id="h9w-2s-qxA"/>
+                <outlet property="view" destination="iN0-l3-epB" id="g1m-Vz-5tS"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

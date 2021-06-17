@@ -12,6 +12,7 @@
 #import "CammraController.h"
 #import "ViewCtrFooter.h"
 #import "PsImageController.h"
+#import "刻画-Swift.h"
 #import "EditImageController.h"
 #import "IntroViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
@@ -381,13 +382,20 @@
             break;
         case 1:
         {
-            PsImageController *psCtr = [[PsImageController alloc] init];
+            /*PsImageController *psCtr = [[PsImageController alloc] init];
             
             psCtr.isStandard = NO;
             
             psCtr.image = selectedImage;
             
-            [self.navigationController pushViewController:psCtr animated:YES];
+            [self.navigationController pushViewController:psCtr animated:YES];*/
+            
+            
+            
+            CIFilterController *cifCtr = [[CIFilterController alloc] init];
+            cifCtr.isStandard = NO;
+            cifCtr.image = selectedImage;
+            [self.navigationController pushViewController:cifCtr animated:YES];
         }
             break;
         case 2:
