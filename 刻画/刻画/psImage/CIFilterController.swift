@@ -32,7 +32,11 @@ class CIFilterController: UIViewController, UICollectionViewDataSource, UICollec
         
         let filterNames = CIFilter.filterNames(inCategory: nil)
         filterAr = filterNames.map { (name) -> CIFilter in
-            CIFilter.init(name: name)!
+            let f = CIFilter.init(name: name)!
+            if f.attributes.count == 23 {
+                print("最多的参数filter(\(f.name)): \(f.attributes.keys)")
+            }
+            return f
         }
         
         
@@ -160,6 +164,10 @@ class CIFilterController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let filter = CIFilter.init(name: filterAr[indexPath.row].name)!
         let filter = filterAr[indexPath.row]
+        
+        print("选择滤镜：\(filter.name)")
+        print(filter.attributes.description)
+        
         if filter.attributes.keys.contains(kCIInputImageKey) {
             filter.setValue(CIImage.init(image: image), forKey: kCIInputImageKey)
         }
