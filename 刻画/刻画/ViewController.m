@@ -72,7 +72,7 @@
         
         [self.navigationController pushViewController:intro animated:NO];
     }else if (firstCtr == 0) {
-        [self toCameraAction:nil];
+//        [self toCameraAction:nil];
     }
     
 }

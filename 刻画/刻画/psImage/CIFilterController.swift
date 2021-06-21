@@ -20,8 +20,8 @@ class CIFilterController: UIViewController, UICollectionViewDataSource, UICollec
     @objc var image:UIImage = UIImage.init()
     var thumbImage = UIImage.init(named: "thumb")!
     
-    var filterAr = Array<CIFilter>.init()//存储滤镜
-    var filter = CIFilter.init()//当前滤镜
+    var filterAr:Array<CIFilter> = [CIFilter.init(name: "CIColorInvert")!]//存储滤镜
+//    var filter = CIFilter.init()//当前滤镜
     var startPoint = CGPoint.init();//开始点
     
     @IBOutlet weak var imageView: UIImageView!
@@ -34,6 +34,7 @@ class CIFilterController: UIViewController, UICollectionViewDataSource, UICollec
         filterAr = filterNames.map { (name) -> CIFilter in
             CIFilter.init(name: name)!
         }
+        
         
         collectionView.register(UINib.init(nibName: "CammraCell", bundle: nil), forCellWithReuseIdentifier: "cammraCell")
         collectionView.allowsSelection = true
@@ -129,33 +130,41 @@ class CIFilterController: UIViewController, UICollectionViewDataSource, UICollec
             switch (key) {
             case kCIInputImageKey:
                 hasInputImageKey = true
-                filter.setValue(thumbImage.ciImage, forKey: kCIInputImageKey)
+                filter.setValue(CIImage(image: thumbImage), forKey: kCIInputImageKey)
                 break
-            case kCIInputCenterKey:
-                filter.setValue(CIVector.init(x: 10, y: 10), forKey: kCIInputCenterKey)
-                break
+//            case kCIInputCenterKey:
+//                filter.setValue(CIVector.init(x: 10, y: 10), forKey: kCIInputCenterKey)
+//                break
             case kCIInputTargetImageKey:
                 hasOther = true
                 break
-            case kCIInputTransformKey:
-                let vv = NSValue.init(cgAffineTransform: CGAffineTransform.init(scaleX: 0.5, y: 0.33))
-                filter.setValue(vv, forKey: kCIInputTransformKey)
-                break
+//            case kCIInputTransformKey:
+//                let vv = NSValue.init(cgAffineTransform: CGAffineTransform.init(scaleX: 0.5, y: 0.33))
+//                filter.setValue(vv, forKey: kCIInputTransformKey)
+//                break
             default:
                 break
             }
         }
         
         if hasInputImageKey && !hasOther {
-            cell.imageView.image = getFilterImage(filter)
+            cell.imageView.image = getFilterImage(filter, thumbImage)
         } else {
             cell.imageView.image = nil
         }
         
-//        cell.imageView.image = UIImage.init(named: "thumb")
-        
         return cell
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let filter = CIFilter.init(name: filterAr[indexPath.row].name)!
+        let filter = filterAr[indexPath.row]
+        if filter.attributes.keys.contains(kCIInputImageKey) {
+            filter.setValue(CIImage.init(image: image), forKey: kCIInputImageKey)
+        }
+        
+        imageView.image = getFilterImage(filter, image) ?? image
     }
     
     // MARK: -
@@ -165,11 +174,11 @@ class CIFilterController: UIViewController, UICollectionViewDataSource, UICollec
         return filter
     }
     
-    func getFilterImage(_ filter:CIFilter) -> UIImage? {
+    func getFilterImage(_ filter:CIFilter, _ oImage: UIImage) -> UIImage? {
         if let oi = filter.outputImage {
             var ff = oi.extent
             if ff.origin.x <= 0 {
-                ff = CIImage.init(cgImage: thumbImage.cgImage!).extent
+                ff = CIImage.init(cgImage: oImage.cgImage!).extent
             } else {
                 return UIImage.init(ciImage: oi)
             }
@@ -181,21 +190,4 @@ class CIFilterController: UIViewController, UICollectionViewDataSource, UICollec
         }
         return nil
     }
-    
-    
-    /*
-    // 得到过滤后的图片
-    CIImage *outputImage = [filter outputImage];
-    // 转换图片, 创建基于GPU的CIContext对象
-    CGImageRef cgimg;
-    
-    CGRect ff = [outputImage extent];
-    
-    if (ff.origin.x <= 0) {
-        ff = [[CIImage imageWithCGImage:self.image.CGImage] extent];
-    }
-    
-    cgimg = [self.context createCGImage:outputImage fromRect:ff];
-    
-    UIImage *newImg = [UIImage imageWithCGImage:cgimg];*/
 }
