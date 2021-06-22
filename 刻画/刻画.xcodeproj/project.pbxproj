@@ -268,6 +268,8 @@
 		8DBCC72418BED2420086E74E /* DLWMSpringMenuAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCC71C18BED2420086E74E /* DLWMSpringMenuAnimator.m */; };
 		8DE274912679937D00D0925F /* CIFilterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE274902679937D00D0925F /* CIFilterController.xib */; };
 		8DE27496267993A500D0925F /* CIFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE27495267993A500D0925F /* CIFilterController.swift */; };
+		8DE274A72681902300D0925F /* CameraWithCIFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE274A52681902300D0925F /* CameraWithCIFilterController.swift */; };
+		8DE274A82681902300D0925F /* CameraWithCIFilterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE274A62681902300D0925F /* CameraWithCIFilterController.xib */; };
 		8DEB716B18CEE619002A7D3D /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DEB716A18CEE619002A7D3D /* CoreText.framework */; };
 		8DEB716E18CF0473002A7D3D /* WTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEB716D18CF0473002A7D3D /* WTextView.m */; };
 		8DF5815818ADB04900791AC1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF5815718ADB04900791AC1 /* MessageUI.framework */; };
@@ -785,6 +787,8 @@
 		8DE274902679937D00D0925F /* CIFilterController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CIFilterController.xib; sourceTree = "<group>"; };
 		8DE27494267993A500D0925F /* 刻画-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "刻画-Bridging-Header.h"; sourceTree = "<group>"; };
 		8DE27495267993A500D0925F /* CIFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIFilterController.swift; sourceTree = "<group>"; };
+		8DE274A52681902300D0925F /* CameraWithCIFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraWithCIFilterController.swift; sourceTree = "<group>"; };
+		8DE274A62681902300D0925F /* CameraWithCIFilterController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraWithCIFilterController.xib; sourceTree = "<group>"; };
 		8DEB716A18CEE619002A7D3D /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		8DEB716C18CF0473002A7D3D /* WTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTextView.h; sourceTree = "<group>"; };
 		8DEB716D18CF0473002A7D3D /* WTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTextView.m; sourceTree = "<group>"; };
@@ -899,7 +903,7 @@
 				18AB6E2C186188FC00A1999D /* setting */,
 				186475261850B2DA00833805 /* util */,
 				186475201850B20F00833805 /* new */,
-				8DA1DF1718DBFF8E005C36CB /* cammra */,
+				8DA1DF1718DBFF8E005C36CB /* camera */,
 				8D9EDB2718DFC06300F51416 /* editImage */,
 				8D9BF7B418E9461400186FDF /* psImage */,
 				8D9BF7DB18ED954300186FDF /* Intro */,
@@ -1194,7 +1198,7 @@
 			path = editImage;
 			sourceTree = "<group>";
 		};
-		8DA1DF1718DBFF8E005C36CB /* cammra */ = {
+		8DA1DF1718DBFF8E005C36CB /* camera */ = {
 			isa = PBXGroup;
 			children = (
 				8DA1DF1818DBFFD5005C36CB /* CammraController.h */,
@@ -1206,8 +1210,10 @@
 				8DA440E918E2F5F000EFE4DA /* XXController.h */,
 				8DA440EA18E2F5F000EFE4DA /* XXController.m */,
 				8DA440EB18E2F5F000EFE4DA /* XXController.xib */,
+				8DE274A52681902300D0925F /* CameraWithCIFilterController.swift */,
+				8DE274A62681902300D0925F /* CameraWithCIFilterController.xib */,
 			);
-			path = cammra;
+			path = camera;
 			sourceTree = "<group>";
 		};
 		8DA1E12918DC0469005C36CB /* GPUImage */ = {
@@ -1687,6 +1693,7 @@
 				8D9BF7BE18E9560E00186FDF /* VariableThumbView.xib in Resources */,
 				8DA440E418E2796B00EFE4DA /* ViewCtrFooter.xib in Resources */,
 				8D9EDB2C18DFC0CB00F51416 /* EditImageController.xib in Resources */,
+				8DE274A82681902300D0925F /* CameraWithCIFilterController.xib in Resources */,
 				186475021850AD1E00833805 /* Images.xcassets in Resources */,
 				8D9BF7E018ED956000186FDF /* IntroViewController.xib in Resources */,
 				8D9EDB3418E0454900F51416 /* CammraCell.xib in Resources */,
@@ -1893,6 +1900,7 @@
 				8DA1E2F618DC046B005C36CB /* GPUImageStretchDistortionFilter.m in Sources */,
 				18AB6DDA18616BAF00A1999D /* UIView+SkipperImage.m in Sources */,
 				8DA1E28E18DC046B005C36CB /* GPUImageCrosshatchFilter.m in Sources */,
+				8DE274A72681902300D0925F /* CameraWithCIFilterController.swift in Sources */,
 				8DA440E718E2CE7600EFE4DA /* UIDevice+Resolutions.m in Sources */,
 				18AB6DF818616C7600A1999D /* ASIFormDataRequest.m in Sources */,
 				8DA1E2ED18DC046B005C36CB /* GPUImageSketchFilter.m in Sources */,
