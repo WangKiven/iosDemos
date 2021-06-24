@@ -38,6 +38,10 @@ class CIFilterManager {
         filterNames = CIFilter.filterNames(inCategory: kCICategoryBuiltIn)
     }
     
+    func getOutImage(index:Int, origin:OutImageOrigin) -> UIImage {
+        return getOutImage(filterName: filterNames[index], origin: origin)
+    }
+    
     func getOutImage(filterName:String, origin:OutImageOrigin) -> UIImage {
         let filter = getFilter(filterName: filterName, origin: origin)
         
@@ -61,6 +65,9 @@ class CIFilterManager {
         return UIImage.init()
     }
     
+    func getFilter(index:Int, origin:OutImageOrigin) -> CIFilter {
+        return getFilter(filterName: filterNames[index], origin: origin)
+    }
     func getFilter(filterName:String, origin:OutImageOrigin) -> CIFilter {
         var filter:CIFilter?
         
@@ -89,6 +96,31 @@ class CIFilterManager {
     
     func createFilter(filterName:String, origin:OutImageOrigin) -> CIFilter {
         let filter = CIFilter.init(name: filterName)!
+        
+        
+        let dic = filter.attributes
+        dic.forEach { (key, value) in
+            switch (key) {
+            case kCIInputImageKey:
+                if origin == .selectedOrigin {
+                    filter.setValue(CIImage(image: thumb), forKey: kCIInputImageKey)
+                } else {
+                    filter.setValue(CIImage(image: image), forKey: kCIInputImageKey)
+                }
+                break
+//            case kCIInputCenterKey:
+//                filter.setValue(CIVector.init(x: 10, y: 10), forKey: kCIInputCenterKey)
+//                break
+            case kCIInputTargetImageKey:
+                break
+//            case kCIInputTransformKey:
+//                let vv = NSValue.init(cgAffineTransform: CGAffineTransform.init(scaleX: 0.5, y: 0.33))
+//                filter.setValue(vv, forKey: kCIInputTransformKey)
+//                break
+            default:
+                break
+            }
+        }
         
         return filter
     }

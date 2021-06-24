@@ -271,6 +271,7 @@
 		8DE274A72681902300D0925F /* CameraWithCIFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE274A52681902300D0925F /* CameraWithCIFilterController.swift */; };
 		8DE274A82681902300D0925F /* CameraWithCIFilterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE274A62681902300D0925F /* CameraWithCIFilterController.xib */; };
 		8DE274B62683225C00D0925F /* CIFilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE274B52683225C00D0925F /* CIFilterManager.swift */; };
+		8DE274BB268435D300D0925F /* FilterCollectionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE274BA268435D300D0925F /* FilterCollectionSelector.swift */; };
 		8DEB716B18CEE619002A7D3D /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DEB716A18CEE619002A7D3D /* CoreText.framework */; };
 		8DEB716E18CF0473002A7D3D /* WTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEB716D18CF0473002A7D3D /* WTextView.m */; };
 		8DF5815818ADB04900791AC1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DF5815718ADB04900791AC1 /* MessageUI.framework */; };
@@ -791,6 +792,7 @@
 		8DE274A52681902300D0925F /* CameraWithCIFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraWithCIFilterController.swift; sourceTree = "<group>"; };
 		8DE274A62681902300D0925F /* CameraWithCIFilterController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraWithCIFilterController.xib; sourceTree = "<group>"; };
 		8DE274B52683225C00D0925F /* CIFilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIFilterManager.swift; sourceTree = "<group>"; };
+		8DE274BA268435D300D0925F /* FilterCollectionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionSelector.swift; sourceTree = "<group>"; };
 		8DEB716A18CEE619002A7D3D /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		8DEB716C18CF0473002A7D3D /* WTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTextView.h; sourceTree = "<group>"; };
 		8DEB716D18CF0473002A7D3D /* WTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTextView.m; sourceTree = "<group>"; };
@@ -973,6 +975,7 @@
 		186475261850B2DA00833805 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				8DE274B92684340300D0925F /* CIFilterExt */,
 				8D9BF86E18EE9E3600186FDF /* libs */,
 				8DA1E12918DC0469005C36CB /* GPUImage */,
 				8DBCC70C18BED2420086E74E /* MenuView */,
@@ -981,7 +984,6 @@
 				18AB6DD418616AC800A1999D /* UIMessageBox */,
 				18AB6DCF186169B700A1999D /* common */,
 				186475271850B2DA00833805 /* super */,
-				8DE274B52683225C00D0925F /* CIFilterManager.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -1593,6 +1595,15 @@
 			path = MenuView;
 			sourceTree = "<group>";
 		};
+		8DE274B92684340300D0925F /* CIFilterExt */ = {
+			isa = PBXGroup;
+			children = (
+				8DE274B52683225C00D0925F /* CIFilterManager.swift */,
+				8DE274BA268435D300D0925F /* FilterCollectionSelector.swift */,
+			);
+			path = CIFilterExt;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1815,6 +1826,7 @@
 				8DA1E27718DC046B005C36CB /* GPUImageAlphaBlendFilter.m in Sources */,
 				8DA1E2CD18DC046B005C36CB /* GPUImageMultiplyBlendFilter.m in Sources */,
 				18AB6DF618616C7600A1999D /* ASIDataDecompressor.m in Sources */,
+				8DE274BB268435D300D0925F /* FilterCollectionSelector.swift in Sources */,
 				8D9BF7BC18E9539100186FDF /* VariableThumbView.m in Sources */,
 				8DA1E2E618DC046B005C36CB /* GPUImageSaturationBlendFilter.m in Sources */,
 				18AB6DD318616ABD00A1999D /* WebDataRequest.m in Sources */,

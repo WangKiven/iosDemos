@@ -26,6 +26,7 @@ class CIFilterController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
+//    @IBOutlet var collectionSelector: FilterCollectionSelector!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -45,8 +45,8 @@
                             </collectionViewFlowLayout>
                             <cells/>
                             <connections>
-                                <outlet property="dataSource" destination="-1" id="cyS-fu-uHQ"/>
-                                <outlet property="delegate" destination="-1" id="ZIy-7B-SyR"/>
+                                <outlet property="dataSource" destination="-1" id="qt5-IF-0Xn"/>
+                                <outlet property="delegate" destination="-1" id="FzJ-fv-VUS"/>
                             </connections>
                         </collectionView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6az-WI-jQ8" customClass="WButton">
