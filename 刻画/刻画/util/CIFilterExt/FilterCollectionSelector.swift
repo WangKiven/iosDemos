@@ -11,8 +11,13 @@ class FilterCollectionSelector: NSObject, UICollectionViewDataSource, UICollecti
     
     let filterManager:CIFilterManager
     
-    init(filterManager:CIFilterManager) {
+    init(filterManager:CIFilterManager, collectionView: UICollectionView) {
         self.filterManager = filterManager
+        
+        
+        collectionView.register(UINib.init(nibName: "CammraCell", bundle: nil), forCellWithReuseIdentifier: "cammraCell")
+        collectionView.allowsSelection = true
+        collectionView.selectItem(at: NSIndexPath.init(row: 0, section: 0) as IndexPath, animated: false, scrollPosition: .top)
     }
     
     // MARK: - dataSource/delegate
